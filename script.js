@@ -21,11 +21,17 @@ var writePassword = function() {
   var lowerOptions = window.confirm("Include lowercase letters?\nClick OK if yes.");
   var numberOptions = window.confirm("Include numbers?\nClick OK if yes.");
   var specialOptions = window.confirm("Include special characters?\nClick OK if yes.");
+  
+  // Create instance in which they don't confirm anything
+  if (!upperOptions && !lowerOptions && !numberOptions && !specialOptions) {
+    window.alert("You do not meet any of the criteria. Please try again.");
+    writePassword();
+  }
+  
   var showPassword = window.alert("Here's your password!");
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
 
