@@ -53,6 +53,14 @@ var writePassword = function() {
   
   var showPassword = window.alert("Here's your password!");
 
+  var generatePassword = function() {
+    // create a for loop somehow
+    for (i = 0; i < characterLength.value; i++) {
+      randomUpper + randomLower + randomNumbers + randomSymbols;
+      return;
+    }
+  }
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
