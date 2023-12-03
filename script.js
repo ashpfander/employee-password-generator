@@ -10,6 +10,9 @@ var criteria = {
   specialCharacters: "~!@#$%^&*()_+?-=.".split("")
 };
 
+// Houses empty string to add the multiple options upon confirmation
+var multipleOptions = "";
+
 // Write password to the #password input
 var writePassword = function() {
 
@@ -20,29 +23,25 @@ var writePassword = function() {
     writePassword();
   }
 
-  // If confirmed, randomize the specific criteria for uppercase, lowercase, numbers, and special characters
+  // If confirmed, add specific criteria to multipleOptions string
   var upperOptions = window.confirm("Include uppercase letters?\nClick OK if yes.");
   if (upperOptions) {
-    var random1 = Math.floor(Math.random() * criteria.uppercaseLetters.length);
-    var randomUpper = criteria.uppercaseLetters[random1];
+    multipleOptions += criteria.uppercaseLetters;
   }
 
   var lowerOptions = window.confirm("Include lowercase letters?\nClick OK if yes.");
   if (lowerOptions) {
-    var random2 = Math.floor(Math.random() * criteria.lowercaseLetters.length);
-    var randomLower = criteria.lowercaseLetters[random2];
+    multipleOptions += criteria.lowercaseLetters;
   }
 
   var numberOptions = window.confirm("Include numbers?\nClick OK if yes.");
   if (numberOptions) {
-    var random3 = Math.floor(Math.random() * criteria.numbers.length);
-    var randomNumbers = criteria.numbers[random3];
+    multipleOptions += criteria.numbers;
   }
 
   var specialOptions = window.confirm("Include special characters?\nClick OK if yes.");
   if (specialOptions) {
-    var random4 = Math.floor(Math.random() * criteria.specialCharacters.length);
-    var randomSymbols = criteria.specialCharacters[random4];
+    multipleOptions += criteria.specialCharacters;
   }
   
   // Create instance in which they don't confirm anything
@@ -51,12 +50,13 @@ var writePassword = function() {
     writePassword();
   }
   
-  var showPassword = window.alert("Here's your password!");
+  // End alert for showing password after all options
+  window.alert("Here's your password!");
 
   var generatePassword = function() {
     // create a for loop somehow
-    for (i = 0; i < characterLength.value; i++) {
-      randomUpper + randomLower + randomNumbers + randomSymbols;
+    for (i = 0; i < characterLength; i++) {
+      multipleOptions.push[i](Math.random(Math.floor() * multipleOptions.length));
       return;
     }
   }
