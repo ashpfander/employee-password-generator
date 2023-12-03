@@ -53,11 +53,14 @@ var writePassword = function() {
   // End alert for showing password after all options
   window.alert("Here's your password!");
 
+  // Create additional variable to house multipleOptions randomizer
+  var finalPassword = "";
+
   var generatePassword = function() {
     // create a for loop somehow
     for (i = 0; i < characterLength; i++) {
-      multipleOptions.push[i](Math.random(Math.floor() * multipleOptions.length));
-      return;
+      finalPassword += multipleOptions[Math.floor(Math.random() * multipleOptions.length)];
+      return(finalPassword[i]);
     }
   }
 
