@@ -2,12 +2,11 @@
 var generateBtn = document.querySelector("#generate");
 
 // Different password criterias
-// Split for the code to read each character individually within the strings
 var criteria = {
-  uppercaseLetters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
-  lowercaseLetters: "abcdefghijklmnopqrstuvwxyz".split(""),
-  numbers: "1234567890".split(""),
-  specialCharacters: "~!@#$%^&*()_+?-=.".split("")
+  uppercaseLetters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lowercaseLetters: "abcdefghijklmnopqrstuvwxyz",
+  numbers: "1234567890",
+  specialCharacters: "~!@#$%^&*()_+?-=."
 };
 
 // Houses empty string to add the multiple options upon confirmation
@@ -55,9 +54,10 @@ var writePassword = function() {
 
   var generatePassword = function() {
     // create a for loop somehow
-    for (i = 0; i < characterLength; i++) {
-      multipleOptions[Math.floor(Math.random() * multipleOptions.length)];
-      return(multipleOptions);
+    for (var i = 0; i < characterLength; i++) {
+      var random = (Math.floor(Math.random() * multipleOptions.length));
+      var finalPassword = multipleOptions[random];
+      return(finalPassword);
     }
   }
 
