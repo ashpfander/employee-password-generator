@@ -9,11 +9,12 @@ var criteria = {
   specialCharacters: "~!@#$%^&*()_+?-=."
 };
 
-// Houses empty string to add the multiple options upon confirmation
-var multipleOptions = "";
-
 // Write password to the #password input
 var writePassword = function() {
+
+  // Houses empty string to add the multiple options upon confirmation
+  // Moved to inside the function so it houses the correct options upon regeneration
+  var multipleOptions = "";
 
   // Starts with first prompt of character length selection and if/else if statements
   var characterLength = window.prompt("Between 8 and 128, how many characters would you like your password to be?");
@@ -24,22 +25,22 @@ var writePassword = function() {
 
   // If confirmed, add specific criteria to multipleOptions string
   var upperOptions = window.confirm("Include uppercase letters?\nClick OK if yes.");
-  if (upperOptions) {
+  if (upperOptions == true) {
     multipleOptions += criteria.uppercaseLetters;
   }
 
   var lowerOptions = window.confirm("Include lowercase letters?\nClick OK if yes.");
-  if (lowerOptions) {
+  if (lowerOptions == true) {
     multipleOptions += criteria.lowercaseLetters;
   }
 
   var numberOptions = window.confirm("Include numbers?\nClick OK if yes.");
-  if (numberOptions) {
+  if (numberOptions == true) {
     multipleOptions += criteria.numbers;
   }
 
   var specialOptions = window.confirm("Include special characters?\nClick OK if yes.");
-  if (specialOptions) {
+  if (specialOptions == true) {
     multipleOptions += criteria.specialCharacters;
   }
   
@@ -53,12 +54,15 @@ var writePassword = function() {
   window.alert("Here's your password!");
 
   var generatePassword = function() {
-    // create a for loop somehow
+    // Create for loop to create inputted length password
+    // Empty password string outside of the loop so it can generate the loop as many times as it needs before spitting out the final password
+    var password = "";
     for (var i = 0; i < characterLength; i++) {
       var random = (Math.floor(Math.random() * multipleOptions.length));
       var finalPassword = multipleOptions[random];
-      return(finalPassword);
+      password += finalPassword;
     }
+    return(password);
   }
 
   var password = generatePassword();
